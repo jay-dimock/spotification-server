@@ -1,0 +1,12 @@
+GET http://localhost:8000/api/playlists/auth/login
+
+###
+
+POST http://localhost:8000/api/playlists/user/create
+Content-Type: application/json
+
+{
+    "spotifyId": "44",
+    "email": "k@k.com"
+}
+
