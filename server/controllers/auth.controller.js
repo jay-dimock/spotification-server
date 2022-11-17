@@ -30,6 +30,7 @@ module.exports.login = (req, res) => {
         client_id: process.env.CLIENT_ID,
         scope: scope,
         redirect_uri: process.env.REDIRECT_URI,
+        show_dialog: true,
       })
   );
 };
@@ -58,5 +59,31 @@ module.exports.auth = async (req, res) => {
     .then((data) => {
       const query = querystring.stringify(data);
       res.redirect(`${process.env.CLIENT_REDIRECT_URI}?${query}`);
+    });
+};
+
+module.exports.refresh = async (req, res) => {
+  if (!req.query.refresh_token) {
+    throw new Error("Refresh token request is missing refresh_token value");
+  }
+  await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {
+      Authorization:
+        "Basic " +
+        Buffer.from(
+          process.env.CLIENT_ID + ":" + process.env.CLIENT_SECRET
+        ).toString("base64"),
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: encodeFormData({
+      grant_type: "refresh_token",
+      refresh_token: req.query.refresh_token,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      res.send(data);
     });
 };

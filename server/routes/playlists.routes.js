@@ -10,4 +10,5 @@ module.exports = (app) => {
   app.get("/api/playlists/auth/test", AuthController.test);
   app.get("/api/playlists/auth/login", AuthController.login);
   app.get("/api/playlists/auth/auth", AuthController.auth);
+  app.get("/api/playlists/auth/refresh", AuthController.refresh);
 };

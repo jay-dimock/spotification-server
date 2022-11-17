@@ -9,4 +9,9 @@ Content-Type: application/json
     "spotifyId": "44",
     "email": "k@k.com"
 }
+###
+
+GET http://localhost:8000/api/playlists/auth/refresh?refresh_token=AQBI8BR6sua_5bOrjVpRKXBsHNawQItjTDgb4_ni7_pnEUBf1phVaolSRyOOfEZsF_83o0nOSDhf_3gXpLsI4rsGxrqM3IJ6_YQwka2v4GpZ7HWpnc-Pb8Fx-8LX2dma6UM
+
+
 
