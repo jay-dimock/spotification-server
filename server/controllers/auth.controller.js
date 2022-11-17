@@ -64,7 +64,9 @@ module.exports.auth = async (req, res) => {
 
 module.exports.refresh = async (req, res) => {
   if (!req.query.refresh_token) {
-    throw new Error("Refresh token request is missing refresh_token value");
+    return res
+      .status(400)
+      .json({ error: "Refresh token request is missing refresh_token value" });
   }
   await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
