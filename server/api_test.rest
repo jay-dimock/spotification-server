@@ -1,13 +1,13 @@
-GET http://localhost:8000/api/playlists/auth/login
+GET http://localhost:8000/api/playlists/groups/testUser-1
 
 ###
 
-POST http://localhost:8000/api/playlists/user/create
+POST http://localhost:8000/api/playlists/groups
 Content-Type: application/json
 
 {
-    "spotifyId": "44",
-    "email": "k@k.com"
+    "spotifyId": "testSpotifyId-3",
+    "userId": "testUser-1"
 }
 ###
 

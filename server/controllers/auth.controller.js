@@ -85,7 +85,6 @@ module.exports.refresh = async (req, res) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       res.send(data);
     });
 };
