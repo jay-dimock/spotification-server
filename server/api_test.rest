@@ -1,4 +1,4 @@
-GET http://localhost:8000/api/playlists/groups/testUser-1
+GET http://localhost:8000/api/playlists/groups/124103193
 
 ###
 
@@ -6,8 +6,8 @@ POST http://localhost:8000/api/playlists/groups
 Content-Type: application/json
 
 {
-    "spotifyId": "testSpotifyId-3",
-    "userId": "testUser-1"
+    "spotifyId": "1Osl5Wo118qBElD9r5U8Ui",
+    "userId": "124103193"
 }
 ###
 

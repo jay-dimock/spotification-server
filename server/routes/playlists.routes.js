@@ -15,5 +15,10 @@ module.exports = (app) => {
 
   app.get("/api/playlists/groups/test", GroupController.test);
   app.post("/api/playlists/groups", GroupController.createGroup);
+  app.put(
+    "/api/playlists/groups/:spotifyId",
+    GroupController.updatePlaylistsForGroup
+  );
   app.get("/api/playlists/groups/:userId", GroupController.getGroups);
+  app.delete("/api/playlists/groups/:spotifyId", GroupController.deleteGroup);
 };
