@@ -5,7 +5,6 @@ module.exports.test = async (req, res) => {
 };
 
 module.exports.getGroups = async (req, res) => {
-  console.log(req.params);
   Group.find({ userId: req.params.userId })
     .then((groups) => {
       const pdict = {};
@@ -39,9 +38,12 @@ module.exports.createGroup = async (req, res) => {
 };
 
 module.exports.updatePlaylistsForGroup = async (req, res) => {
+  // ensure no duplicates:
+  const uniquePlaylistIds = [...new Set(req.body)];
+
   Group.findOneAndUpdate(
     { spotifyId: req.params.spotifyId },
-    { spotifyPlaylistIds: req.body },
+    { spotifyPlaylistIds: uniquePlaylistIds },
     { new: true }
   )
     .then((group) => res.json(group))
