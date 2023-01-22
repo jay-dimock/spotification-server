@@ -1,9 +1,5 @@
 const { Group } = require("../models/group.model.js");
 
-module.exports.test = async (req, res) => {
-  res.send("Hello world");
-};
-
 module.exports.getGroups = async (req, res) => {
   Group.find({ userId: req.params.userId })
     .then((groups) => {
@@ -25,7 +21,6 @@ module.exports.getGroups = async (req, res) => {
       res.json({ groups: gdict, playlists: pdict });
     })
     .catch((err) => {
-      console.log(err);
       res.status(400).json(err);
     });
 };
@@ -55,5 +50,3 @@ module.exports.deleteGroup = async (req, res) => {
     .then((group) => res.json(group))
     .catch((err) => res.status(400).json(err));
 };
-
-// to do: add playlist, remove playlist, delete group, rename group
