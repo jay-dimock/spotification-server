@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 const helmet = require("helmet");
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet()); // help protect your app from well-known web vulnerabilities
